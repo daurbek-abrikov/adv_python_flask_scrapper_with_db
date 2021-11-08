@@ -7,7 +7,7 @@ import requests
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:785213@localhost:5432/pythonFlaskDB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:PASSWORD@localhost:5432/NAME'
 app.config['SECRET_KEY'] = 'thisismyflasksecretkey'
 
 db = SQLAlchemy(app)
