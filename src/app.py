@@ -7,7 +7,7 @@ import requests
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:PASSWORD@localhost:5432/NAME'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:PASSWORD@localhost:5432/DB_NAME'
 app.config['SECRET_KEY'] = 'thisismyflasksecretkey'
 
 db = SQLAlchemy(app)
@@ -123,7 +123,7 @@ class Paragraphs(db.Model):
         self.paragraph = paragraph
 
     def __repr__(self):
-        return f"News('{self.header}', '{self.paragraph}')"
+        return f"Paragraphs('{self.header}', '{self.paragraph}')"
 
 
 db.drop_all()
