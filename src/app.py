@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, re
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import requests
@@ -44,11 +44,11 @@ def find_coin_news():
 
         soup = BeautifulSoup(browser.page_source, 'html.parser')
         headers_list = soup.find_all('h3', {'class': 'sc-1q9q90x-0 gEZmSc'})
-        p_list = soup.find_all('p', {'class': 'sc-1eb5slv-0 svowul-3 ddtKCV'})
+        p_list = soup.find_all('p',class_=re.compile('svowul-3 ddtKCV'))
         headers_text = [h.text for h in headers_list]
         p_text = [p.text for p in p_list]
 
-        for i in range(0, len(headers_text)):
+        for i in range(0, min(len(headers_text), len(p_text))):
             news = News(coin=coin_name, header=headers_text[i], paragraph=p_text[i])
             db.session.add(news)
         db.session.commit()
