@@ -25,5 +25,7 @@ http://127.0.0.1:5000/
 ### Examples
 
 There are three routes: '/' (default) home page, '/news' for searching for news and '/paragraphs' for searching for paragraphs.  
+For example, here we searched for "ethereum" coin and it returns:
+![image](https://user-images.githubusercontent.com/80217865/141061720-66e6b9c6-156f-47e8-957f-7db7803979d0.png)
 
 
